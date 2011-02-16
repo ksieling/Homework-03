@@ -55,7 +55,11 @@ try {
     ->setSubject('Kevin Sieling, SWIFT Mailer 4.0.6')
     ->setFrom(array('kevinsieling@gmail.com' => 'Kevin Sieling'))
     ->setTo('k.sieling@hotmail.com')
-    ->setBody('I rock at PHP', 'text/html');
+    ->setBody('I rock at PHP', 'text/html')
+    ->setReplyTo('kevinsieling@gmail.com')
+    ;
+    
+  $header->addTextHeader('ANM293', 'CNM-270');
   
   // sends the message
   $numSent = $mailer->send($message);
