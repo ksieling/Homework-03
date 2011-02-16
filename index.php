@@ -9,7 +9,8 @@
  * e-mail from a google account
  * 
  */
-  // sets the time zone to Eastern Standard
+try {
+// sets the time zone to Eastern Standard
   date_default_timezone_set('America/Detroit');
   // @turns off errors
   // sets the display of errors to off in the local ini file
@@ -32,8 +33,7 @@
   
   // sets the include path, where to look for the include file
   set_include_path('.'.PATH_SEPARATOR.implode(PATH_SEPARATOR, array(
-    realpath(APP_PATH . SLASH . 'library')
-    ,realpath(APP_PATH . SLASH . 'library' . SLASH . 'lib')
+    realpath(APP_PATH . SLASH . 'library' . SLASH . 'lib')
   )));
   
   // forces the include of the swift_required.php file
@@ -59,6 +59,12 @@
   
   // sends the message
   $numSent = $mailer->send($message);
+  
+} catch(Exception $e) {
+
+  trigger_error('Send message error',E_USER_NOTICE);
+  
+  }
     
  ?>
     
